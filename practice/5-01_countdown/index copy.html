@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>テンプレート</title>
+<link href="../../_common/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+<link href="../../_common/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="container">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.container -->
+</header>
+<main>
+<div class="container">
+<section>
+    <h2>知ってました？<br>
+        2025年大阪万博開催まで</h2>
+    <p class='timer'>あと<span id="days"></span>日<span id="hours"></span>時間<span id="min"></span>分<span id="sec"></span>秒</p>
+</section>
+</div><!-- /.container -->
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div><!-- /.container -->
+</footer>
+<script>
+    'use strict;'
+    const goal = new Date(2025, 4, 3);
+
+    function countdown(date){
+        const now = new Date();
+
+        let rest  = date.getTime() - now.getTime();
+        let sec   = Math.floor(rest / 1000) % 60;
+        let min   = Math.floor(rest / 1000 / 60) % 60;
+        let hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+        let days  = Math.floor(rest / 1000 / 60 / 60 / 24);
+
+        let count = [days, hours, min, sec];
+
+        return count;
+    }
+
+    function viewCountdown(){
+        const counter = countdown(goal);
+        document.getElementById('days').textContent  = counter[0];
+        document.getElementById('hours').textContent = String(counter[1]).padStart(2, '0');
+        document.getElementById('min').textContent   = String(counter[2]).padStart(2, '0');
+        document.getElementById('sec').textContent   = String(counter[3]).padStart(2, '0');
+        refresh();
+    }
+
+    function refresh(){
+        setTimeout(viewCountdown, 1000);
+    }
+
+    viewCountdown();
+
+</script>
+</body>
+</html>

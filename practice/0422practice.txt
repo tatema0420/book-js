@@ -1,0 +1,9 @@
+1 SELECT title,price FROM `course` WHERE  title LIKE 'Linux%'; →正解
+2 SELECT title FROM `course` WHERE price BETWEEN 40000 AND 50000; →正解
+3 SELECT name,phone FROM `staff` WHERE phone LIKE '03%'; →正解
+4 SELECT * FROM `schedule` WHERE staff = 10 AND end_date < '2016-12-31'; →ほぼ正解（解答は<ではなく<=）
+5 SELECT title, price,start_date FROM schedule JOIN course; →ちょっと違う
+SELECT title, price,start_date FROM schedule JOIN course ON schedule.course = course.code; →これが正解
+6 SELECT price, name FROM schedule JOIN course ON schedule.course = course.code JOIN staff ON schedule.staff = staff.code GROUP BY staff.code ORDER BY name
+→GROUP BY の後には名前ごとに振ってあるコード番号でまとめると良い。
+→SUM（）関数が抜けている。sum(course.price)かsum(price)を使う。

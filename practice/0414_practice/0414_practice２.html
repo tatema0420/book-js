@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>テンプレート</title>
+<link href="../../_common/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+<link href="../../_common/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="container">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.container -->
+</header>
+<main>
+<div class="container">
+<section>
+<p>平均点は<span id="ave"></span>点です。</p>
+<p>平均点以上の人数は<span id="count"></span>人です。</p>
+</section>
+</div><!-- /.container -->
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div><!-- /.container -->
+</footer>
+<script>
+  'use strict'
+
+/*平均点*/
+  let number = [50 , 85 , 67 , 88 , 91 , 76 , 79 , 84];
+  let sum = 0;
+  for (let score of number) {
+    sum += score
+  }
+  let average = sum/number.length
+  console.log(average);
+
+  let count = 0;
+  for(let members of number) {
+    if(members >= average)
+    count++;
+  }
+
+  console.log(count);
+
+
+</script>
+</body>
+</html>

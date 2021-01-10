@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>テンプレート</title>
+<link href="../../_common/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+<link href="../../_common/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="container">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.container -->
+</header>
+<main>
+<div class="container">
+<section>
+<h1>会議室の利用料金</h1>
+<h2>基本使用料（１室：２時間）4,500円</h2>
+<p>【オプション】</p>
+<form class="" action="index.html" method="post">
+  <dd>
+  <dt><label><input type="checkbox" name="pro" value="2000" onclick="total" >プロジェクター１台（2000円）</label></dt>
+  <dt><label><input type="checkbox" name="power" value="500" onclick="total">電源タップ×5個（500円）</label></dt>
+  <dt><label><input type="checkbox" name="pc" value="1000" onclick="">ノートパソコン１台（1000円）</label></dt>
+  <p></p>
+  <dt>合計金額<input type="text" name="" value="4500"  placeholder="" id='price'></dt>
+  </dd>
+</form>
+</section>
+</div><!-- /.container -->
+</main>
+<footer>
+<div class="container">
+<p>JavaScript Samples</p>
+</div><!-- /.container -->
+</footer>
+<script>
+  'use strict';
+  let pro = 2000;
+  let power = 500;
+  let pc = 1000;
+  let price = 4500;
+
+
+  document.getElementById ('form').onclick = function total(event){
+    event.preventDefault();
+    let pro = document.getElementById('form').pro.value
+    let power = document.getElementById('form').power.value
+    let pc = document.getElementById('form').pc.value
+  };
+
+</script>
+</body>
+</html>
